@@ -1,0 +1,61 @@
+// tot_avg.CPP
+//     Calculate total and average of a series of input
+//     integer values;
+//     the first value input will indicate the number
+//     of input values to follow
+//     (the first value should not be counted in the
+//      total or average)
+//     DAT2219 week 5 Lecture 1 demonstration
+//           J.Eleanore Snaird / 11 September 2000
+
+#include <iostream.h>   // cin, cout, endl
+#include <conio.h>      // clrscr(), getch()
+
+void main (void)
+{
+  int numberOfValuesToBeInput;
+  int numberOfValuesInput;
+  int inputValue;
+  float totalOfValues;
+  float averageValue;
+
+  clrscr();
+
+  totalOfValues = 0.00f;
+  numberOfValuesInput = 0;
+
+  cout << "Enter the number of integer values to be input: ";
+  cin >> numberOfValuesToBeInput;
+
+  while (numberOfValuesInput < numberOfValuesToBeInput)
+  {
+     cout << "Enter integer value: ";
+     cin  >> inputValue;
+
+     numberOfValuesInput = numberOfValuesInput + 1;
+
+     totalOfValues = totalOfValues + inputValue;
+  }
+
+  cout << endl
+       << "Total of input values: " << totalOfValues
+       << endl;
+
+  if (numberOfValuesToBeInput > 0)
+  {
+     averageValue = totalOfValues / numberOfValuesToBeInput;
+     cout << endl
+          << "Average of values input: "
+          << averageValue
+          << endl;
+  }
+  else
+  {
+     cout << endl
+          << "Can only provide average if at least one value input"
+          << endl;
+  }
+
+  cout << endl << endl << "Hit any key to quit...";
+  getch();
+}
